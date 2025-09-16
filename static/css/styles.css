@@ -1,0 +1,61 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 92%;
+  max-width: 900px;
+  margin: 30px auto;
+  background: white;
+  padding: 18px 22px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 20px;
+}
+
+header {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:12px;
+}
+header h1 { margin: 0 0 0; }
+header h1 a { text-decoration:none; color:#070e5d;}
+
+.toolbar { margin-bottom: 12px; }
+.btn {
+  display:inline-block;
+  padding:8px 12px;
+  text-decoration:none;
+  background:#2b8aef;
+  color:#fff;
+  border-radius:6px;
+  border:none;
+  cursor:pointer;
+}
+.btn.small { padding:6px 8px; font-size:0.9em; }
+.btn.danger { background:#e24b4b; }
+
+.task-list { list-style:none; padding:0; margin:0; }
+.task-item {
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  border-bottom:1px solid #eee;
+  padding:12px 0;
+}
+.task-item.completed .task-title { text-decoration:line-through; color: #888; }
+.task-title { font-weight:600; color:#222; text-decoration:none; }
+.muted { color:#888; font-size:0.85em; margin-left:8px; }
+.task-desc { margin:6px 0 0; color:#444; }
+.form-row { margin:8px 0; }
+.form-control { width:100%; padding:8px; border-radius:6px; border:1px solid #ddd; }
+.form-check-input { margin-right:6px; }
+footer { text-align:center; margin-top:14px; color:#666; font-size:0.9em; }
+
+.messages { list-style:none; padding:0; margin:8px 0; }
+.message { padding:8px 10px; border-radius:6px; margin-bottom:6px; }
+.message.error { background:#fdecea; color:#611a15; }
+.message.success { background:#e6f4ea; color:#1e4620; }

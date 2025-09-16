@@ -1,0 +1,39 @@
+{% load static %}
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>To-Do App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1><a href="{% url 'tasks:index' %}">My To-Do App</a></h1>
+      <nav>
+        {% if user.is_authenticated %}
+          <span>Hi, {{ user.username }}!</span>
+          <a class="btn small" href="{% url 'tasks:logout' %}">Logout</a>
+        {% else %}
+          <a class="btn small" href="{% url 'tasks:login' %}">Login</a>
+          <a class="btn small" href="{% url 'tasks:signup' %}">Sign Up</a>
+        {% endif %}
+      </nav>
+    </header>
+    <main>
+      {% if messages %}
+        <ul class="messages">
+          {% for msg in messages %}
+            <li class="message {{ msg.tags }}">{{ msg }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+      {% block content %}{% endblock %}
+    </main>
+    <footer>
+      <p>Made with ❤️ using Django</p>
+    </footer>
+  </div>
+</body>
+</html>

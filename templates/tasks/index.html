@@ -1,0 +1,35 @@
+{% extends 'tasks/base.html' %}
+{% block content %}
+<div class="toolbar">
+    <a class="btn" href="{% url 'tasks:create' %}">+ New Task</a>
+     <a class="btn" href="{% url 'tasks:create' %}">Previous Task</a>
+          
+</div>
+
+{% if tasks %}
+<ul class="task-list">
+    {% for task in tasks %}
+    <li class="task-item {% if task.completed %}completed{% endif %}">
+        <div class="task-main">
+            <a class="task-title" href="{% url 'tasks:edit' task.pk %}">{{ task.title }}</a>
+            <small class="muted">{{ task.created_at|date:"M d, Y H:i" }}</small>
+            <p class="task-desc">{{ task.description|linebreaksbr }}</p>
+        </div>
+        <div class="task-actions">
+            <form action="{% url 'tasks:toggle' task.pk %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                <button class="btn small" type="submit">{% if task.completed %}Undo{% else %}Done{% endif %}</button>
+            </form>
+            <a class="btn small" href="{% url 'tasks:edit' task.pk %}">Edit</a>
+            <form action="{% url 'tasks:delete' task.pk %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                <button class="btn small danger" type="submit">Delete</button>
+            </form>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No tasks yet. Create one!</p>
+{% endif %}
+{% endblock %}

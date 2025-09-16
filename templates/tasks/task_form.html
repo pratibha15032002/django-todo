@@ -1,0 +1,22 @@
+{% extends 'tasks/base.html' %}
+{% block content %}
+<h2>{{ action }} Task</h2>
+<form method="post">
+    {% csrf_token %}
+    <div class="form-row">
+        {{ form.title.label_tag }}<br>
+        {{ form.title }}
+    </div>
+    <div class="form-row">
+        {{ form.description.label_tag }}<br>
+        {{ form.description }}
+    </div>
+    <div class="form-row">
+        {{ form.completed }} {{ form.completed.label_tag }}
+    </div>
+    <div class="form-row">
+        <button class="btn" type="submit">{{ action }}</button>
+        <a class="btn" href="{% url 'tasks:index' %}">Cancel</a>
+    </div>
+</form>
+{% endblock %}
