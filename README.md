@@ -1,3 +1,4 @@
+![Uploading Screenshot 2025-09-17 213655.png…]()
 # Django To-Do App (with Authentication)
 
 Simple Django To-Do web app with user signup/login and user-specific tasks.
