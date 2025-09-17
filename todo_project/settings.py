@@ -8,10 +8,11 @@ SECRET_KEY = "replace-this-with-a-secure-one"
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'django-todo-2-45az.onrender.com',
-    'localhost',
-    '127.0.0.1'
+    "127.0.0.1",
+    "localhost",
+    "django-todo-3-yjcs.onrender.com"
 ]
+
 
 
 
